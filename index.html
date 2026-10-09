@@ -1,0 +1,709 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#fff4f1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="撱?雀?祇?閮?>
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="icon" href="icon-192.png">
+<style>
+:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{background:var(--bg,#fff4f1);-webkit-text-size-adjust:100%}
+body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+</style>
+</head><title>廣島冬遊記</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Huninn&family=Chiron+GoRound+TC:wght@400;700&family=Zen+Maru+Gothic:wght@500;700&display=swap">
+<style>
+/* Layout: illustrated seaside hero → trip chips → day "ticket" tabs → one day's dotted timeline */
+:root{
+  --bg:#fff4f1;          /* sakura washi */
+  --paper:#ffffff;
+  --ink:#33395a;         /* indigo ink */
+  --ink-soft:#6f7395;
+  --line:#f0d9d3;
+  --torii:#e5574a;       /* vermilion */
+  --torii-soft:#fde3df;
+  --sea:#8ecbe8;
+  --sea-deep:#5aa7d0;
+  --matcha:#86b98a;
+  --sun:#ffcf6b;
+  --deer:#c98b5a;
+  --c-move:#5aa7d0; --c-food:#f19a4b; --c-sight:#e5574a; --c-spa:#3fae9e; --c-shop:#9a7fd1;
+  --c-move-bg:#e3f2fa; --c-food-bg:#fdeedf; --c-sight-bg:#fde3df; --c-spa-bg:#ddf3ef; --c-shop-bg:#eee8fa;
+  --tip-bg:#fff8e4; --tip-line:#f3dc9c;
+  --shadow:0 3px 0 #f0d9d3;
+  --f-display:"Huninn","Chiron GoRound TC","PingFang TC","Microsoft JhengHei",sans-serif;
+  --f-body:"Chiron GoRound TC","Huninn","PingFang TC","Microsoft JhengHei",sans-serif;
+  --f-jp:"Zen Maru Gothic","Huninn",sans-serif;
+  --f-num:"Zen Maru Gothic","Chiron GoRound TC",sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#1d2238; --paper:#272e4b; --ink:#f6ece6; --ink-soft:#b6b4cc; --line:#3a4266;
+  --torii:#ff7a6b; --torii-soft:#4a2f3e; --sea:#4f86a8; --sea-deep:#7cc0e3; --matcha:#7fb487; --sun:#ffd27a; --deer:#d9a274;
+  --c-move:#7cc0e3; --c-food:#f7ab66; --c-sight:#ff7a6b; --c-spa:#5fcab9; --c-shop:#b49cec;
+  --c-move-bg:#2a3d55; --c-food-bg:#47372e; --c-sight-bg:#4a2f3e; --c-spa-bg:#24433f; --c-shop-bg:#383058;
+  --tip-bg:#3a3528; --tip-line:#6b5d34; --shadow:0 3px 0 #141829; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#1d2238; --paper:#272e4b; --ink:#f6ece6; --ink-soft:#b6b4cc; --line:#3a4266;
+  --torii:#ff7a6b; --torii-soft:#4a2f3e; --sea:#4f86a8; --sea-deep:#7cc0e3; --matcha:#7fb487; --sun:#ffd27a; --deer:#d9a274;
+  --c-move:#7cc0e3; --c-food:#f7ab66; --c-sight:#ff7a6b; --c-spa:#5fcab9; --c-shop:#b49cec;
+  --c-move-bg:#2a3d55; --c-food-bg:#47372e; --c-sight-bg:#4a2f3e; --c-spa-bg:#24433f; --c-shop-bg:#383058;
+  --tip-bg:#3a3528; --tip-line:#6b5d34; --shadow:0 3px 0 #141829; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.65;
+  background-image:radial-gradient(var(--line) 1.2px,transparent 1.3px);background-size:22px 22px}
+.wrap{max-width:860px;margin:0 auto;padding-inline:16px;padding-block:20px 56px;display:flex;flex-direction:column;gap:22px}
+
+/* Hero */
+/* Hero: compact two-part card — title on wave-patterned paper, illustration window on the right */
+.hero{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);border-radius:26px;overflow:hidden;background:var(--paper);border:2.5px solid var(--ink);box-shadow:5px 5px 0 var(--ink)}
+.hero-text{padding:18px 20px;display:flex;flex-direction:column;justify-content:center;gap:4px;min-width:0;
+  background-color:var(--paper);
+  background-image:radial-gradient(circle at 50% 100%,transparent 9px,var(--line) 10px,var(--line) 11px,transparent 12px),radial-gradient(circle at 50% 100%,transparent 4px,var(--line) 5px,var(--line) 6px,transparent 7px);
+  background-size:24px 12px;background-position:0 100%;background-repeat:repeat-x;padding-bottom:26px}
+.hero-jp{font-family:var(--f-jp);font-weight:700;font-size:13px;color:var(--torii);letter-spacing:.14em}
+.hero h1{margin:0;font-family:var(--f-display);font-weight:400;font-size:clamp(28px,5.4vw,40px);line-height:1.15;color:var(--ink)}
+.squiggle{width:96px;height:9px;display:block}
+.hero-meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.pill{font-family:var(--f-num);font-weight:700;font-size:12px;padding:2px 10px;border-radius:99px;border:1.5px solid var(--ink);background:var(--paper);white-space:nowrap}
+.pill.soft{background:var(--torii-soft)}
+.hero-art{position:relative;border-left:2.5px solid var(--ink);min-height:200px}
+.hero-art > svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+.crew{position:absolute;right:8px;bottom:6px;display:flex;gap:4px}
+.crew figure{margin:0;display:flex;flex-direction:column;align-items:center;animation:bob 2.6s ease-in-out infinite}
+.crew figure + figure{animation-delay:.4s}
+.crew svg{width:44px;height:44px;border-radius:50%;background:#fff;border:2px solid #33395a;display:block}
+.crew figcaption{margin-top:-6px;font-size:11px;font-weight:700;color:#fff;background:#33395a;border-radius:99px;padding:0 7px;line-height:1.6;position:relative}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+@media (prefers-reduced-motion:reduce){.crew figure{animation:none}}
+@media (max-width:560px){
+  .hero{grid-template-columns:minmax(0,1.05fr) minmax(0,1fr)}
+  .hero-text{padding:14px 14px 24px}
+  .hero-art{min-height:150px}
+  .crew svg{width:36px;height:36px}
+  .pill{font-size:11px;padding:1px 8px;white-space:normal}
+}
+
+/* Chips */
+.info{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);gap:12px}
+.chip.flights .rows{display:flex;flex-direction:column;gap:8px;min-width:0;flex:1}
+.chip.flights .rows > div + div{border-top:1.5px dashed var(--line);padding-top:8px}
+.chip .sub{font-family:var(--f-body);font-weight:400;font-size:13px;color:var(--ink-soft)}
+/* Travelers strip inside the hero card */
+.chip{background:var(--paper);border:2px solid var(--ink);border-radius:18px;padding:12px 14px;display:flex;gap:10px;align-items:center;min-width:0;box-shadow:var(--shadow)}
+.chip svg{flex:none;width:34px;height:34px}
+.chip b{display:block;font-size:13px;color:var(--ink-soft);font-weight:400}
+.chip span{display:block;font-family:var(--f-num);font-weight:700;font-size:14px;line-height:1.35}
+@media (max-width:640px){.info{grid-template-columns:1fr}}
+
+/* Day tabs */
+/* Day tabs: compact pills — number badge + date side by side (stacked on phones) */
+.tabs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
+.tab{appearance:none;font:inherit;color:var(--ink);cursor:pointer;background:var(--paper);border:2px solid var(--ink);border-radius:16px;
+  padding:7px 8px;display:flex;align-items:center;justify-content:center;gap:8px;min-width:0;transition:background .15s,box-shadow .15s}
+.tab:hover{background:var(--torii-soft)}
+.tab:focus-visible{outline:3px dashed var(--torii);outline-offset:3px}
+.tab .n{flex:none;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:var(--torii-soft);color:var(--torii);
+  font-family:var(--f-num);font-weight:700;font-size:17px;line-height:1}
+.tab .txt{display:flex;flex-direction:column;line-height:1.2;min-width:0}
+.tab .dt{font-family:var(--f-num);font-weight:700;font-size:14px;font-variant-numeric:tabular-nums}
+.tab .wd{font-size:12px;color:var(--ink-soft)}
+.tab[aria-selected="true"]{background:var(--torii);color:#fff;box-shadow:0 3px 0 var(--ink)}
+.tab[aria-selected="true"] .n{background:#fff;color:var(--torii)}
+.tab[aria-selected="true"] .wd{color:#ffe3de}
+@media (max-width:560px){
+  .tab{flex-direction:column;gap:3px;padding:6px 2px;border-radius:14px}
+  .tab .n{width:26px;height:26px;font-size:15px}
+  .tab .txt{align-items:center}
+  .tab .dt{font-size:12px}.tab .wd{display:none}
+}
+
+/* Sticky day bar: solid strip; the upward shadow also covers the safe-area gap above it */
+.daybar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);margin-inline:-16px;padding:10px 16px;display:flex;gap:8px;align-items:stretch;
+  border-bottom:2px dashed var(--line)}
+.daybar .tabs{flex:1;min-width:0}
+/* Only once stuck: shadow below, and a strip filling the safe-area gap above */
+.daybar.stuck{box-shadow:0 8px 12px -10px rgba(51,57,90,.45)}
+.daybar.stuck::before{content:"";position:absolute;left:0;right:0;bottom:100%;height:env(safe-area-inset-top,0px);background:var(--bg)}
+.jump{appearance:none;font:inherit;cursor:pointer;color:var(--ink);background:var(--c-spa-bg);border:2px dashed var(--ink);border-radius:16px;padding:6px 10px;display:flex;align-items:center;justify-content:center;gap:6px;flex:none}
+.jump .kana{font-family:var(--f-jp);font-weight:700;font-size:20px;line-height:1;color:var(--c-spa)}
+.jump .lb{font-size:13px;font-weight:700}
+.jump:hover{background:var(--c-spa);color:#fff}.jump:hover .kana{color:#fff}
+.jump:focus-visible{outline:3px dashed var(--torii);outline-offset:3px}
+@media (max-width:560px){.daybar{gap:6px}.tabs{gap:5px}.jump{flex-direction:column;gap:2px;padding:6px 6px;border-radius:14px}.jump .kana{font-size:16px}.jump .lb{font-size:11px}}
+
+/* Phrasebook */
+.phr{background:var(--paper);border:2.5px solid var(--ink);border-radius:26px;padding:22px clamp(16px,4vw,32px) 26px;box-shadow:6px 6px 0 var(--ink)}
+.phr-head .jp{font-family:var(--f-jp);font-weight:700;color:var(--c-spa);font-size:14px;letter-spacing:.1em}
+.phr-head h2{margin:2px 0 4px;font-family:var(--f-display);font-weight:400;font-size:clamp(21px,4.4vw,28px)}
+.phr-head p{margin:0;color:var(--ink-soft);font-size:14px}
+.cats{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 16px}
+.cat{appearance:none;font:inherit;font-size:14px;font-weight:700;cursor:pointer;color:var(--ink);background:var(--bg);border:2px solid var(--ink);border-radius:99px;padding:3px 14px}
+.cat[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.cat:focus-visible{outline:3px dashed var(--torii);outline-offset:2px}
+.plist{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media (max-width:640px){.plist{grid-template-columns:1fr}}
+.ph{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 10px;align-items:start;background:var(--bg);border-radius:16px;padding:10px 12px;border:1.5px solid var(--line)}
+.ph .ja{font-family:var(--f-jp);font-weight:700;font-size:17px;line-height:1.45}
+.ph .kana{font-family:var(--f-jp);font-size:13px;color:var(--ink-soft);grid-column:1}
+.ph .zh{font-size:15px;grid-column:1}
+.ph .ctag{font-size:11px;font-weight:700;color:var(--c-spa);margin-right:6px}
+.say{grid-row:1 / span 3;grid-column:2;appearance:none;cursor:pointer;width:36px;height:36px;border-radius:50%;border:2px solid var(--ink);background:var(--paper);color:var(--ink);display:grid;place-items:center}
+.say:hover{background:var(--c-spa);color:#fff}
+.say:focus-visible{outline:3px dashed var(--torii);outline-offset:2px}
+.say svg{width:16px;height:16px}
+.today{margin-top:18px;border:2px solid var(--ink);border-radius:20px;padding:14px 16px;background:var(--c-spa-bg)}
+.today-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+.today h4{margin:0;font-family:var(--f-display);font-weight:400;font-size:18px}
+.today .ph{background:var(--paper)}
+.more{appearance:none;font:inherit;font-size:14px;font-weight:700;color:var(--c-spa);background:none;border:0;padding:2px 0;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.more:focus-visible{outline:3px dashed var(--torii);outline-offset:2px}
+
+/* Day panel */
+.panel{background:var(--paper);border:2.5px solid var(--ink);border-radius:26px;padding:22px clamp(16px,4vw,32px) 26px;box-shadow:6px 6px 0 var(--ink)}
+.panel-head{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;align-items:flex-start;border-bottom:2px dashed var(--line);padding-bottom:16px}
+.panel-head .jp{font-family:var(--f-jp);font-weight:700;color:var(--torii);font-size:14px;letter-spacing:.1em}
+.panel-head h2{margin:2px 0 0;font-family:var(--f-display);font-weight:400;font-size:clamp(21px,4.4vw,28px);line-height:1.3;text-wrap:balance}
+.badges{display:flex;gap:8px;flex-wrap:wrap}
+.badge{display:inline-flex;align-items:center;gap:6px;font-family:var(--f-num);font-weight:700;font-size:13px;padding:4px 12px;border-radius:99px;background:var(--c-move-bg);border:1.5px solid var(--ink)}
+.badge.alt{background:var(--torii-soft)}
+.badge svg{width:18px;height:18px}
+
+.timeline{list-style:none;margin:20px 0 0;padding:0;display:flex;flex-direction:column;gap:14px}
+.ev{display:grid;grid-template-columns:62px 40px minmax(0,1fr);align-items:start;position:relative}
+.ev .time{font-family:var(--f-num);font-weight:700;font-size:16px;text-align:right;padding-top:8px;font-variant-numeric:tabular-nums;line-height:1.2}
+.ev .time small{display:block;font-size:12px;color:var(--ink-soft);font-weight:500}
+.ev .dot{justify-self:center;width:34px;height:34px;border-radius:50%;border:2px solid var(--ink);display:grid;place-items:center;background:var(--k-bg);position:relative;z-index:1;margin-top:2px}
+.ev .dot svg{width:20px;height:20px;color:var(--k)}
+.ev:not(:last-child)::before{content:"";position:absolute;left:calc(62px + 20px - 1px);top:36px;bottom:-16px;border-left:2.5px dotted var(--ink-soft)}
+.ev .card{border-radius:16px;padding:10px 14px;background:var(--k-bg);border:1.5px solid transparent;min-width:0}
+.ev .tag{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--k);border-radius:99px;padding:0 10px;margin-right:6px;vertical-align:2px}
+.ev h3{display:inline;font-family:var(--f-display);font-weight:400;font-size:17px;margin:0}
+.tips h4,.tide h4{font-family:var(--f-display);font-weight:400}
+
+/* Tide card (Day 3) */
+.tide{margin-top:22px;border:2px solid var(--ink);border-radius:20px;padding:16px 18px;background:var(--c-move-bg)}
+.tide-top{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+.tide h4{margin:0;font-size:18px}
+.tide .src{font-size:12px;color:var(--ink-soft)}
+.tide-chart{overflow-x:auto;margin-top:8px}
+.tide-chart svg{display:block;width:100%;min-width:520px;height:auto}
+.tide-legend{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:10px}
+.tide-legend div{background:var(--paper);border-radius:12px;padding:6px 10px;border:1.5px solid var(--line);min-width:0}
+.tide-legend b{display:block;font-size:12px;color:var(--ink-soft);font-weight:400}
+.tide-legend span{font-family:var(--f-num);font-weight:700;font-size:16px;font-variant-numeric:tabular-nums}
+.tide-legend .hi span{color:var(--sea-deep)}
+.tide-legend .lo span{color:var(--c-food)}
+.tide p{margin:10px 0 0;font-size:15px}
+@media (max-width:560px){.tide-legend{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.ev p{margin:4px 0 0;color:var(--ink-soft);font-size:15px}
+.k-move{--k:var(--c-move);--k-bg:var(--c-move-bg)}
+.k-food{--k:var(--c-food);--k-bg:var(--c-food-bg)}
+.k-sight{--k:var(--c-sight);--k-bg:var(--c-sight-bg)}
+.k-spa{--k:var(--c-spa);--k-bg:var(--c-spa-bg)}
+.k-shop{--k:var(--c-shop);--k-bg:var(--c-shop-bg)}
+@media (max-width:480px){.ev{grid-template-columns:50px 36px minmax(0,1fr)}.ev:not(:last-child)::before{left:calc(50px + 18px - 1px)}.ev .time{font-size:14px}.ev .dot{width:30px;height:30px}}
+
+.tips{margin-top:22px;background:var(--tip-bg);border:2px dashed var(--tip-line);border-radius:18px;padding:14px 18px;display:flex;gap:12px}
+.tips svg{flex:none;width:44px;height:44px}
+.tips h4{margin:0 0 4px;font-size:16px}
+.tips ul{margin:0;padding-left:1.1em}
+.tips li{margin:2px 0}
+.tips li.mine::marker{content:"★ ";color:var(--torii)}
+
+.check{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px}
+.check label{display:inline-flex;gap:6px;align-items:center;background:var(--torii-soft);border-radius:99px;padding:4px 12px;font-size:14px;cursor:pointer}
+.check input{accent-color:var(--torii)}
+
+.memo{margin-top:16px}
+.memo label{font-size:14px;color:var(--ink-soft);display:block;margin-bottom:4px}
+.memo textarea{width:100%;min-height:68px;font:inherit;font-size:15px;color:var(--ink);background:var(--bg);border:2px dashed var(--line);border-radius:14px;padding:10px 12px;resize:vertical}
+.memo textarea:focus{outline:none;border-color:var(--torii)}
+
+.nav{display:flex;justify-content:space-between;gap:10px;margin-top:20px}
+.nav button{appearance:none;font:inherit;font-weight:700;color:var(--ink);background:var(--bg);border:2px solid var(--ink);border-radius:99px;padding:6px 16px;cursor:pointer}
+.nav button:hover{background:var(--torii-soft)}
+.nav button:focus-visible{outline:3px dashed var(--torii);outline-offset:2px}
+.nav button[disabled]{opacity:.35;cursor:default}
+
+.panel.swap .timeline > li{animation:pop .4s both}
+@keyframes pop{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.panel.swap .timeline > li{animation:none}.tab{transition:none}}
+
+footer{text-align:center;color:var(--ink-soft);font-size:13px;font-family:var(--f-jp);font-weight:700}
+.hero h1{font-family:var(--f-display)}
+.tab .n{font-family:var(--f-num);font-weight:700}
+.deer-walk{display:inline-block;vertical-align:middle;width:46px;height:40px}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-plane" viewBox="0 0 24 24"><path fill="currentColor" d="M21 15.5v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0v5l-8 5v2l8-2.5v5l-2 1.5v1.5l3.5-1 3.5 1v-1.5l-2-1.5v-5z"/></symbol>
+    <symbol id="i-bus" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="15" rx="3" fill="currentColor"/><rect x="6.5" y="5.5" width="11" height="6" rx="1.5" fill="#fff"/><circle cx="8" cy="15" r="1.3" fill="#fff"/><circle cx="16" cy="15" r="1.3" fill="#fff"/><rect x="6" y="18" width="3" height="3" rx="1" fill="currentColor"/><rect x="15" y="18" width="3" height="3" rx="1" fill="currentColor"/></symbol>
+    <symbol id="i-taxi" viewBox="0 0 24 24"><path fill="currentColor" d="M9 4h6l1 3h2.5A2.5 2.5 0 0 1 21 9.5V16a1 1 0 0 1-1 1h-1a2 2 0 0 1-4 0H9a2 2 0 0 1-4 0H4a1 1 0 0 1-1-1V9.5A2.5 2.5 0 0 1 5.5 7H8z"/><rect x="5.5" y="9" width="13" height="3" rx="1" fill="#fff"/></symbol>
+    <symbol id="i-tram" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" d="M8 2.5h8M12 2.5v3"/><rect x="4.5" y="5.5" width="15" height="13" rx="3" fill="currentColor"/><rect x="7" y="8" width="4" height="4" rx="1" fill="#fff"/><rect x="13" y="8" width="4" height="4" rx="1" fill="#fff"/><path stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M7 21l2-2.5M17 21l-2-2.5"/></symbol>
+    <symbol id="i-ferry" viewBox="0 0 24 24"><path fill="currentColor" d="M7 6h7l2 4H5z"/><path fill="currentColor" d="M2.5 11h19l-2.5 6H5z"/><path stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" d="M2 20.5c2 0 2-1 4-1s2 1 4 1 2-1 4-1 2 1 4 1 2-1 4-1"/></symbol>
+    <symbol id="i-food" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M14 2.5l-3 8M18 3l-5 7.5"/><path fill="currentColor" d="M3 11h18a9 9 0 0 1-18 0z"/><rect x="8" y="19.5" width="8" height="2" rx="1" fill="currentColor"/></symbol>
+    <symbol id="i-walk" viewBox="0 0 24 24"><path fill="currentColor" d="M4 14c0-3 2-5 4-5 1.5 0 2 1 3.5 1.5S16 11 18 12.5s2 3.5.5 4.5H5a1 1 0 0 1-1-1z"/><rect x="4" y="18" width="16" height="2.5" rx="1.2" fill="currentColor"/><circle cx="9" cy="5" r="2" fill="currentColor"/></symbol>
+    <symbol id="i-onsen" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" d="M8 9c-1.5-1.5 1.5-3 0-5M12 9c-1.5-1.5 1.5-3 0-5M16 9c-1.5-1.5 1.5-3 0-5"/><path fill="currentColor" d="M3 13c0-1 1-1.5 2-1.5h14c1 0 2 .5 2 1.5 0 4.5-4 8-9 8s-9-3.5-9-8z"/></symbol>
+    <symbol id="i-torii" viewBox="0 0 24 24"><path fill="currentColor" d="M2 4.5c4 1 16 1 20 0l-.6 2.5H2.6z"/><rect x="4" y="9" width="16" height="2" rx=".5" fill="currentColor"/><rect x="6" y="6.5" width="2.4" height="15" rx=".6" fill="currentColor"/><rect x="15.6" y="6.5" width="2.4" height="15" rx=".6" fill="currentColor"/><rect x="11" y="6.5" width="2" height="3" fill="currentColor"/></symbol>
+    <symbol id="i-tower" viewBox="0 0 24 24"><path fill="currentColor" d="M8 21V7l4-4 4 4v14z"/><path fill="#fff" d="M10 9h4v2h-4zM10 13h4v2h-4z"/><path fill="currentColor" d="M3 21h18v1.5H3z"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2l2.6 6.3L21 9l-5 4.4 1.6 6.6L12 16.6 6.4 20 8 13.4 3 9l6.4-.7z"/></symbol>
+    <symbol id="i-castle" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2l5 4H7z"/><rect x="8" y="6" width="8" height="4" fill="currentColor"/><path fill="currentColor" d="M5 10h14l-2 3H7z"/><rect x="7" y="13" width="10" height="6" fill="currentColor"/><path fill="currentColor" d="M3 19h18v2.5H3z"/><rect x="10.5" y="15" width="3" height="4" fill="#fff"/></symbol>
+    <symbol id="i-bag" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="1.8" fill="none" d="M8.5 8V6a3.5 3.5 0 0 1 7 0v2"/><path fill="currentColor" d="M4.5 8h15l-1 13h-13z"/></symbol>
+    <symbol id="i-case" viewBox="0 0 24 24"><rect x="5" y="6" width="14" height="14" rx="2.5" fill="currentColor"/><path stroke="currentColor" stroke-width="1.8" fill="none" d="M9.5 6V3.5h5V6"/><path stroke="#fff" stroke-width="1.6" d="M9 9v8M15 9v8"/><circle cx="8" cy="21.5" r="1.2" fill="currentColor"/><circle cx="16" cy="21.5" r="1.2" fill="currentColor"/></symbol>
+    <symbol id="i-coffee" viewBox="0 0 24 24"><path fill="currentColor" d="M4 9h13v5a6 6 0 0 1-6 6h-1a6 6 0 0 1-6-6z"/><path stroke="currentColor" stroke-width="1.8" fill="none" d="M17 11h1.5a2.5 2.5 0 0 1 0 5H16"/><path stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" d="M8 6.5c-1-1 1-2 0-3.5M12 6.5c-1-1 1-2 0-3.5"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5" fill="#ffc94d"/><g stroke="#f4a62a" stroke-width="2" stroke-linecap="round"><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></g></symbol>
+    <symbol id="i-cloudsun" viewBox="0 0 24 24"><circle cx="9" cy="9" r="4.5" fill="#ffc94d"/><path fill="#cfe4f3" stroke="#5aa7d0" stroke-width="1.2" d="M7 20a4 4 0 0 1-.5-8 5 5 0 0 1 9.6-1.2A4.2 4.2 0 0 1 17.5 20z"/></symbol>
+    <symbol id="i-hotel" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2" fill="currentColor"/><g fill="#fff"><rect x="7" y="6" width="3" height="3" rx=".6"/><rect x="14" y="6" width="3" height="3" rx=".6"/><rect x="7" y="11" width="3" height="3" rx=".6"/><rect x="14" y="11" width="3" height="3" rx=".6"/><rect x="10.5" y="16" width="3" height="5" rx=".6"/></g></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path fill="currentColor" d="M7 4.5v15a1 1 0 0 0 1.5.9l12-7.5a1 1 0 0 0 0-1.7l-12-7.5A1 1 0 0 0 7 4.5z"/></symbol>
+    <symbol id="av-bao" viewBox="0 0 40 40">
+      <path d="M5 28c0-11 7-19 15-19s15 8 15 19c0 4-6 6-15 6S5 32 5 28z" fill="#fffaf2" stroke="#33395a" stroke-width="2"/>
+      <path d="M20 9c-2 3-1 6 0 8M20 9c3 2 4 5 3 8M20 9c-4 1-6 4-6 7" stroke="#c9b9a3" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+      <circle cx="15" cy="25" r="1.4" fill="#33395a"/><circle cx="25" cy="25" r="1.4" fill="#33395a"/>
+      <path d="M18 27.5q2 1.6 4 0" stroke="#33395a" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+      <ellipse cx="12" cy="28" rx="2.4" ry="1.4" fill="#f7a8a0"/><ellipse cx="28" cy="28" rx="2.4" ry="1.4" fill="#f7a8a0"/>
+    </symbol>
+    <symbol id="av-nose" viewBox="0 0 40 40">
+      <circle cx="20" cy="21" r="14" fill="#ffd9b8" stroke="#33395a" stroke-width="2"/>
+      <path d="M8 16c3-8 21-10 25 0-4-3-8-4-12-3-4-2-9-1-13 3z" fill="#5b4636"/>
+      <circle cx="14.5" cy="20" r="1.4" fill="#33395a"/><circle cx="25.5" cy="20" r="1.4" fill="#33395a"/>
+      <ellipse cx="20" cy="25" rx="4.2" ry="3.4" fill="#ff9c8a" stroke="#33395a" stroke-width="1.6"/>
+      <ellipse cx="18.8" cy="24" rx="1.1" ry=".8" fill="#fff" opacity=".8"/>
+      <path d="M17.5 30.5q2.5 1.5 5 0" stroke="#33395a" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="i-deer" viewBox="0 0 48 40">
+      <path d="M33 8c-1-3-3-5-5-6M33 8c1-3 0-5 1-7M33 8c2-2 4-3 6-3" stroke="#8a5a36" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+      <ellipse cx="20" cy="24" rx="13" ry="8" fill="#d9975f"/>
+      <rect x="10" y="28" width="3" height="10" rx="1.5" fill="#c4834d"/><rect x="16" y="29" width="3" height="9" rx="1.5" fill="#c4834d"/>
+      <rect x="24" y="29" width="3" height="9" rx="1.5" fill="#c4834d"/><rect x="29" y="28" width="3" height="10" rx="1.5" fill="#c4834d"/>
+      <path d="M28 20c2-4 3-8 5-9" stroke="#d9975f" stroke-width="6" stroke-linecap="round" fill="none"/>
+      <ellipse cx="35" cy="12" rx="6" ry="5" fill="#d9975f"/>
+      <ellipse cx="30" cy="8" rx="2.4" ry="1.4" transform="rotate(-30 30 8)" fill="#c4834d"/>
+      <circle cx="36" cy="11" r="1.1" fill="#33395a"/><circle cx="40.5" cy="13" r="1.1" fill="#33395a"/>
+      <circle cx="36.5" cy="14" r="1.3" fill="#f5a3a3" opacity=".8"/>
+      <circle cx="14" cy="21" r="1.3" fill="#fff4e0"/><circle cx="19" cy="19" r="1.3" fill="#fff4e0"/><circle cx="23" cy="23" r="1.3" fill="#fff4e0"/><circle cx="16" cy="25" r="1.1" fill="#fff4e0"/>
+      <ellipse cx="7.5" cy="21" rx="2.5" ry="2" fill="#fff4e0"/>
+    </symbol>
+  </defs>
+</svg>
+
+<div class="wrap">
+  <header class="hero">
+    <div class="hero-text">
+      <div class="hero-jp">ひろしま ふゆの たび</div>
+      <h1>廣島冬遊記</h1>
+      <svg class="squiggle" viewBox="0 0 124 10" aria-hidden="true"><path d="M2 6 q7.5 -6 15 0 t15 0 t15 0 t15 0 t15 0 t15 0 t15 0 t15 0" fill="none" stroke="var(--torii)" stroke-width="2.6" stroke-linecap="round"/></svg>
+      <div class="hero-meta"><span class="pill">12/23（三）→ 12/27（日）</span><span class="pill soft">5 天 4 夜</span></div>
+    </div>
+    <div class="hero-art">
+      <svg viewBox="0 0 320 220" preserveAspectRatio="xMidYMax slice" role="img" aria-label="宮島海上大鳥居、小鹿、笑臉太陽與小雪花的插畫">
+        <defs>
+          <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd9cf"/><stop offset="1" stop-color="#fff3e6"/></linearGradient>
+          <linearGradient id="seaG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a6d8ef"/><stop offset="1" stop-color="#78bde0"/></linearGradient>
+        </defs>
+        <rect width="320" height="220" fill="url(#sky)"/>
+        <!-- smiling sun -->
+        <g transform="translate(262 76)">
+          <circle r="27" fill="#ffb49e" stroke="#33395a" stroke-width="2.5"/>
+          <path d="M-10 -3 q3 -4 6 0 M4 -3 q3 -4 6 0" stroke="#33395a" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+          <path d="M-5 6 q5 5 10 0" stroke="#33395a" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+          <ellipse cx="-14" cy="5" rx="4" ry="2.5" fill="#ff7f72" opacity=".7"/><ellipse cx="14" cy="5" rx="4" ry="2.5" fill="#ff7f72" opacity=".7"/>
+        </g>
+        <!-- puffy cloud -->
+        <g transform="translate(64 66)" fill="#fff" stroke="#33395a" stroke-width="2.2">
+          <path d="M-30 10 a12 12 0 0 1 8 -20 a16 16 0 0 1 28 -4 a12 12 0 0 1 20 10 a10 10 0 0 1 -2 14 z" stroke-linejoin="round"/>
+        </g>
+        <circle cx="58" cy="70" r="1.6" fill="#33395a"/><circle cx="70" cy="70" r="1.6" fill="#33395a"/>
+        <path d="M61 75 q3 2.5 6 0" stroke="#33395a" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+        <!-- snow -->
+        <g fill="#fff" stroke="#c9d8e8" stroke-width=".8">
+          <circle cx="130" cy="28" r="3"/><circle cx="196" cy="18" r="2.4"/><circle cx="220" cy="92" r="2.6"/><circle cx="24" cy="92" r="2.4"/>
+          <circle cx="160" cy="70" r="2"/><circle cx="300" cy="104" r="2.4"/><circle cx="110" cy="96" r="2"/>
+        </g>
+        <!-- Mt. Misen -->
+        <path d="M0 132 C40 96 76 92 110 116 C140 84 190 78 230 112 C262 100 296 104 320 118 V150 H0z" fill="#a9d3a5" stroke="#33395a" stroke-width="2.2" stroke-linejoin="round"/>
+        <path d="M150 96 q8 -6 16 0 M178 92 q6 -4 12 0" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <!-- sea -->
+        <path d="M0 146 H320 V220 H0z" fill="url(#seaG)"/>
+        <path d="M0 146 H320" stroke="#33395a" stroke-width="2.2"/>
+        <g stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round">
+          <path d="M18 170 q6 -6 12 0 q6 6 12 0"/><path d="M226 162 q6 -6 12 0 q6 6 12 0"/><path d="M196 204 q6 -6 12 0"/><path d="M60 206 q6 -6 12 0 q6 6 12 0"/>
+        </g>
+        <!-- torii -->
+        <g transform="translate(96 82) scale(.6)">
+          <ellipse cx="78" cy="168" rx="92" ry="9" fill="#5aa7d0" opacity=".55"/>
+          <path d="M-14 8 C40 24 116 24 170 8 L165 28 C110 36 46 36 -9 28z" fill="#e5574a" stroke="#33395a" stroke-width="4" stroke-linejoin="round"/>
+          <rect x="-4" y="1" width="164" height="9" rx="4" fill="#33395a"/>
+          <rect x="10" y="46" width="136" height="13" rx="4" fill="#e5574a" stroke="#33395a" stroke-width="4"/>
+          <rect x="70" y="32" width="16" height="16" fill="#33395a"/>
+          <rect x="22" y="30" width="17" height="136" rx="5" fill="#e5574a" stroke="#33395a" stroke-width="4"/>
+          <rect x="117" y="30" width="17" height="136" rx="5" fill="#e5574a" stroke="#33395a" stroke-width="4"/>
+        </g>
+        <!-- deer on a sandbar -->
+        <ellipse cx="52" cy="196" rx="38" ry="9" fill="#f3dfc1" stroke="#33395a" stroke-width="2"/>
+        <use href="#i-deer" x="22" y="148" width="60" height="50"/>
+        <!-- momiji -->
+        <g fill="#e5574a">
+          <path transform="translate(226 126) rotate(-18) scale(.6)" d="M0 -12 L3 -4 L11 -6 L6 1 L12 6 L4 6 L3 13 L0 8 L-3 13 L-4 6 L-12 6 L-6 1 L-11 -6 L-3 -4z"/>
+          <path transform="translate(30 122) rotate(30) scale(.5)" fill="#f19a4b" d="M0 -12 L3 -4 L11 -6 L6 1 L12 6 L4 6 L3 13 L0 8 L-3 13 L-4 6 L-12 6 L-6 1 L-11 -6 L-3 -4z"/>
+        </g>
+      </svg>
+      <div class="crew" role="group" aria-label="這次去旅行的人：包子、鼻子">
+        <figure><svg viewBox="0 0 40 40" aria-hidden="true"><use href="#av-bao"/></svg><figcaption>包子</figcaption></figure>
+        <figure><svg viewBox="0 0 40 40" aria-hidden="true"><use href="#av-nose"/></svg><figcaption>鼻子</figcaption></figure>
+      </div>
+    </div>
+  </header>
+
+  <section class="info" aria-label="旅程基本資訊">
+    <div class="chip flights">
+      <svg style="color:var(--c-move)" aria-hidden="true"><use href="#i-plane"/></svg>
+      <div class="rows">
+        <div><b>去程 12/23（三）</b><span>CI112　桃園 T2 07:10 → 廣島 10:25</span></div>
+        <div><b>回程 12/27（日）</b><span>CI113　廣島 11:25 → 桃園 T2 13:20</span></div>
+      </div>
+    </div>
+    <div class="chip"><svg style="color:var(--c-spa)" aria-hidden="true"><use href="#i-hotel"/></svg><div><b>住宿 4 晚</b><span>CANDEO HOTELS 廣島八丁堀</span><span class="sub">頂樓 Sky Spa 露天浴場</span></div></div>
+  </section>
+
+  <div class="daybar" id="daybar">
+    <nav class="tabs" role="tablist" aria-label="選擇哪一天" id="tabs"></nav>
+    <button type="button" class="jump" id="jump"><span class="kana">あ</span><span class="lb">會話</span></button>
+  </div>
+
+  <section class="panel" id="panel" role="tabpanel" aria-live="polite"></section>
+
+  <section class="phr" id="phrases" aria-labelledby="phr-title">
+    <div class="phr-head">
+      <div class="jp">たびのにほんご</div>
+      <h2 id="phr-title">旅行日文小抄</h2>
+      <p>照這趟行程整理的常用句，點 ▶ 可以聽發音（要看裝置有沒有日文語音）。</p>
+    </div>
+    <div class="cats" id="cats" role="group" aria-label="會話分類"></div>
+    <ul class="plist" id="plist"></ul>
+  </section>
+
+  <footer><svg class="deer-walk" aria-hidden="true"><use href="#i-deer"/></svg> 一路順風・いってらっしゃい！</footer>
+</div>
+
+<script>
+const DAYS = [
+  { key:"day1", date:"12/23", wd:"三", jp:"ようこそ、広島へ", icon:"i-plane",
+    title:"抵達廣島 → 飯店入住 → 本通商圈慢活",
+    weather:{ico:"i-cloudsun", txt:"4° / 11° 晴時多雲"}, extra:{ico:"i-plane", txt:"CI112 07:10 → 10:25"},
+    events:[
+      ["07:10","10:25","move","i-plane","搭機","桃園機場 T2 → 廣島機場 (HIJ)","桃園 T2 報到，07:10 起飛，10:25 降落廣島機場。"],
+      ["11:00","11:50","move","i-bus","交通","利木津巴士 → 廣島站新幹線口","入境後在航廈外搭利木津巴士，直達廣島站新幹線口。"],
+      ["12:00","12:15","move","i-taxi","交通","計程車 → CANDEO HOTELS 廣島八丁堀","短程計程車到飯店寄放行李。"],
+      ["12:30","14:00","food","i-food","午餐","廣島燒：電光石火 或 長田屋","第一餐就吃在地名物廣島燒。"],
+      ["15:00","17:30","sight","i-walk","漫步","入住休息 → 本通拱廊商店街","散步點心：紅葉堂的「炸紅葉饅頭」。"],
+      ["18:30","20:30","food","i-food","晚餐","燒肉 弘法","八丁堀周邊，品嚐黑毛和牛燒肉。"],
+      ["21:00","22:30","spa","i-onsen","泡湯","飯店頂樓 Sky Spa 露天浴場","泡湯消除移動的疲勞。"]
+    ],
+    tips:["利木津巴士可刷 IC 卡或現場買票，下車後轉計程車最省力。","冬天室內外溫差大，洋蔥式穿搭方便穿脫。",
+          {mine:true,t:"入境領行李比較慢的話，搭下一班巴士也沒關係，後面時間往後推就好。"}]
+  },
+  { key:"day2", date:"12/24", wd:"四", jp:"メリークリスマス", icon:"i-star",
+    title:"世界遺產漫遊 → 紙鶴塔市景 → 聖誕夜壽喜燒",
+    weather:{ico:"i-sun", txt:"3° / 10° 晴天"}, extra:{ico:"i-star", txt:"聖誕夜"},
+    events:[
+      ["09:30","11:30","sight","i-walk","散策","原爆圓頂館・和平紀念公園","睡飽出發，參觀世界文化遺產，整區都是平地很好走。"],
+      ["12:00","13:30","food","i-food","午餐","旬彩 馬籠","園區周邊吃星鰻定食或精緻日式料理。"],
+      ["14:00","16:30","sight","i-tower","展望","紙鶴塔（おりづるタワー）","登上頂樓木造展望台，在 Akushu Cafe 喝咖啡看廣島市景。"],
+      ["17:30","18:30","sight","i-star","點燈","Hiroshima Dreamination","平和大通的冬季聖誕燈飾。"],
+      ["19:00","21:00","food","i-food","晚餐","聖誕夜黑毛和牛壽喜燒","推薦：木曾路 或 三瀧莊。"],
+      ["21:30","23:00","spa","i-onsen","泡湯","飯店頂樓露天浴場","聖誕夜放鬆一下。"]
+    ],
+    tips:["聖誕夜的熱門餐廳要提早上官網預約。","傍晚點燈區降溫很快，記得帶圍巾和手套。",
+          {mine:true,t:"行程沒有排和平紀念資料館，想看的話大約要 1～1.5 小時，可以從紙鶴塔挪一些時間。"}]
+  },
+  { key:"day3", date:"12/25", wd:"五", jp:"宮島へ、しかに会いに", icon:"i-torii",
+    title:"經典宮島漫遊 → 嚴島神社大鳥居 → 迴轉壽司",
+    weather:{ico:"i-cloudsun", txt:"2° / 9° 多雲時晴"}, extra:{ico:"i-torii", txt:"滿潮 10:46"},
+    tide:{
+      hourly:[189,114,49,-5,-34,-10,61,147,226,297,351,365,332,279,225,170,122,108,142,198,247,284,309,303],
+      marks:[["lo","04:06",4.1,-34],["hi","10:46",10.77,366],["lo","16:46",16.77,107],["hi","22:23",22.38,312]]
+    },
+    events:[
+      ["09:30","10:30","move","i-ferry","交通","路面電車 → JR 山陽本線 → 渡輪","路面電車到廣島站，轉 JR 到宮島口，再搭渡輪上島。"],
+      ["10:30","12:30","sight","i-torii","參拜","嚴島神社・海上大鳥居","世界遺產嚴島神社與海上大鳥居。"],
+      ["12:30","14:00","food","i-food","午餐","うえの 穴子飯 或 宮島牡蠣屋","表參道商店街吃星鰻飯或現烤牡蠣。"],
+      ["14:00","15:30","sight","i-coffee","漫步","宮島町家老街・伊都岐咖啡","老街散步，找間海景咖啡看海看小鹿。"],
+      ["16:00","17:00","move","i-ferry","交通","渡輪 + JR 返回市區","悠閒地搭船、搭電車回廣島。"],
+      ["18:30","20:30","food","i-food","晚餐","すし丸（迴轉壽司）","吃在地限定的鮮魚握壽司。"],
+      ["21:00","22:30","spa","i-onsen","泡湯","飯店頂樓大浴場","讓走了一天的雙腿休息。"]
+    ],
+    tips:["宮島海風強、體感更冷，要穿防風外套。","小鹿會吃紙和塑膠袋，地圖、票券要收好。",
+          {mine:true,t:"10:46 是滿潮，10:30–12:30 參拜剛好能看到大鳥居和神社「浮在海上」。這天傍晚最低潮位約 107 cm，大概走不到鳥居下面。"},
+          {mine:true,t:"上島要付宮島訪問稅每人 100 日圓，通常跟渡輪票一起付。"},
+          {mine:true,t:"宮島跟奈良不一樣，禁止餵鹿，看看、拍照就好。"}]
+  },
+  { key:"day4", date:"12/26", wd:"六", jp:"のんびり、お買い物", icon:"i-bag",
+    title:"睡到飽古城散策 → 百貨與車站採買",
+    weather:{ico:"i-cloudsun", txt:"3° / 11° 晴時多雲"}, extra:{ico:"i-bag", txt:"購物日"},
+    events:[
+      ["10:00","11:30","food","i-coffee","早午餐","飯店周邊咖啡與輕食","睡到自然醒，慢慢吃早午餐。"],
+      ["12:00","14:00","sight","i-castle","景點","廣島城・護城河公園","散步到廣島城。午餐可選城旁定食或尾道拉麵。"],
+      ["14:30","18:30","shop","i-bag","購物","SOGO 百貨・本通商圈・廣島站 ekie","藥妝、衣服、伴手禮一次買齊。"],
+      ["19:00","21:00","food","i-food","晚餐","和牛炙燒 牛兵衛","最後一晚的和牛大餐。"],
+      ["21:30","23:00","spa","i-case","整理","整理行李・最後一晚泡湯","整理戰利品，再去頂樓泡最後一次湯。"]
+    ],
+    tips:["廣島站 ekie 伴手禮最齊：紅葉饅頭、瀨戶內檸檬點心。","飯店是連住，東西太重可以先拿回房間。",
+          {mine:true,t:"廣島城天守閣可能從 2026 年 3 月起閉館，出發前上官網確認，外圍城跡和護城河還是可以逛。"}]
+  },
+  { key:"day5", date:"12/27", wd:"日", jp:"またね、広島", icon:"i-case",
+    title:"悠閒退房 → 機場巴士 → 返台",
+    weather:{ico:"i-sun", txt:"4° / 12° 晴天"}, extra:{ico:"i-plane", txt:"CI113 11:25 → 13:20"},
+    events:[
+      ["07:30","07:45","move","i-taxi","退房","退房 → 計程車到廣島站新幹線口","飯店門口搭計程車到巴士站。"],
+      ["08:00","08:50","move","i-bus","交通","利木津巴士 → 廣島機場","直達廣島機場。"],
+      ["09:00","11:00","shop","i-bag","機場","報到託運・安檢・免稅店","過安檢後去免稅店補貨。"],
+      ["11:25","13:20","move","i-plane","返台","中華航空 CI113 → 桃園 T2","13:20 回到桃園。"]
+    ],
+    tips:["廣島機場國際線安檢櫃台少，建議搭 08:00 的巴士，09:00 前到機場。"],
+    checklist:["護照（效期 6 個月以上）","電子機票 / 訂房確認","Visit Japan Web","日圓現金 / 信用卡","IC 卡","網卡 / eSIM","旅遊平安險","餐廳預約確認","行動電源（隨身）"]
+  }
+];
+
+// Phrase: [id, category, Japanese, reading, meaning, essential?]
+const CATS = [["star","★ 必備"],["air","機場"],["move","交通"],["hotel","飯店"],["food","餐廳"],["shop","購物"],["sight","觀光"],["help","緊急"]];
+const PHRASES = [
+  ["kanko","air","観光です。","かんこうです。","來觀光的。（入境審查被問目的時）"],
+  ["bus","air","リムジンバスの乗り場はどこですか？","リムジンバスの のりばは どこですか？","利木津巴士在哪裡搭？"],
+  ["mado","air","窓側の席をお願いします。","まどがわの せきを おねがいします。","麻煩給我靠窗的位子。（回程報到）"],
+  ["tonari","air","隣同士の席にしてもらえますか？","となりどうしの せきに して もらえますか？","可以讓我們兩個坐在一起嗎？"],
+  ["taxi","move","キャンデオホテルズ広島八丁堀までお願いします。","キャンデオホテルズ ひろしま はっちょうぼり まで おねがいします。","請到 CANDEO 飯店八丁堀。（計程車）"],
+  ["densha","move","この電車は宮島口に止まりますか？","この でんしゃは みやじまぐちに とまりますか？","這班車有停宮島口嗎？"],
+  ["ferry","move","宮島行きのフェリー乗り場はどこですか？","みやじまいきの フェリーのりばは どこですか？","往宮島的渡輪在哪裡搭？"],
+  ["ic","move","ICカードは使えますか？","アイシーカードは つかえますか？","可以用 IC 卡嗎？",1],
+  ["nimotsu","hotel","荷物を預かってもらえますか？","にもつを あずかって もらえますか？","可以寄放行李嗎？"],
+  ["furo","hotel","大浴場は何時までですか？","だいよくじょうは なんじまでですか？","大浴場開到幾點？"],
+  ["yobu","hotel","タクシーを呼んでもらえますか？","タクシーを よんで もらえますか？","可以幫我叫計程車嗎？"],
+  ["ninzu","food","2人です。","ふたりです。","2 個人。（進餐廳被問幾位時）",1],
+  ["yoyaku2","food","24日の夜7時に、2人で予約したいです。","にじゅうよっかの よる しちじに、ふたりで よやく したいです。","想預約 24 號晚上 7 點，2 個人。（打電話訂位）"],
+  ["yoyaku","food","予約した〇〇です。","よやくした 〇〇です。","我有預約，姓〇〇。",1],
+  ["osusume","food","おすすめは何ですか？","おすすめは なんですか？","推薦什麼？"],
+  ["kore","food","これをください。","これを ください。","我要這個。（指著菜單）",1],
+  ["kaki","food","牡蠣が食べられません。","かきが たべられません。","我不能吃牡蠣。"],
+  ["kaikei","food","お会計お願いします。","おかいけい おねがいします。","麻煩結帳。",1],
+  ["card","food","カードで払えますか？","カードで はらえますか？","可以刷卡嗎？",1],
+  ["gochiso","food","ごちそうさまでした。","ごちそうさまでした。","謝謝招待。（吃完離開時）"],
+  ["ikura","shop","これはいくらですか？","これは いくらですか？","這個多少錢？"],
+  ["menzei","shop","免税できますか？","めんぜい できますか？","可以免稅嗎？"],
+  ["fukuro","shop","袋は大丈夫です。","ふくろは だいじょうぶです。","不用袋子。"],
+  ["betsu","shop","別々に包んでください。","べつべつに つつんで ください。","請分開包裝。（買伴手禮）"],
+  ["shashin","sight","写真を撮ってもらえますか？","しゃしんを とって もらえますか？","可以幫我們拍照嗎？",1],
+  ["toire","sight","トイレはどこですか？","トイレは どこですか？","廁所在哪裡？",1],
+  ["manchou","sight","今日の満潮は何時ですか？","きょうの まんちょうは なんじですか？","今天幾點滿潮？（宮島）"],
+  ["kibun","help","気分が悪いです。","きぶんが わるいです。","我身體不舒服。"],
+  ["saifu","help","財布をなくしました。","さいふを なくしました。","我的錢包掉了。"],
+  ["kyukyu","help","救急車を呼んでください。","きゅうきゅうしゃを よんで ください。","請叫救護車。（119）"]
+];
+const byId = id => PHRASES.find(p => p[0]===id);
+// The 3–4 lines each day actually needs, shown right inside that day
+const DAY_PHR = {
+  day1:["kanko","bus","nimotsu","ninzu"],
+  day2:["yoyaku2","yoyaku","shashin","kaikei"],
+  day3:["densha","ferry","manchou","kaki"],
+  day4:["ikura","menzei","betsu"],
+  day5:["yobu","mado","tonari"]
+};
+const phraseLi = (p, showCat) => `
+    <li class="ph">
+      <div class="ja">${esc(p[2])}</div>
+      ${canSpeak ? `<button type="button" class="say" data-id="${p[0]}" aria-label="播放：${esc(p[2])}"><svg aria-hidden="true"><use href="#i-play"/></svg></button>` : ""}
+      <div class="kana">${esc(p[3])}</div>
+      <div class="zh">${showCat ? `<span class="ctag">${CATS.find(x=>x[0]===p[1])[1]}</span>` : ""}${esc(p[4])}</div>
+    </li>`;
+const bindSay = root => root.querySelectorAll(".say").forEach(b => b.addEventListener("click", () => speak(byId(b.dataset.id)[2])));
+
+const store = {
+  get(k){ try{ return localStorage.getItem(k); }catch(e){ return null; } },
+  set(k,v){ try{ localStorage.setItem(k,v); }catch(e){} }
+};
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const tabsEl = document.getElementById("tabs");
+const panel = document.getElementById("panel");
+
+DAYS.forEach((d,i) => {
+  const b = document.createElement("button");
+  b.className = "tab"; b.id = "tab-"+d.key; b.setAttribute("role","tab");
+  b.setAttribute("aria-controls","panel");
+  b.setAttribute("aria-label", `DAY ${i+1}，${d.date}（${d.wd}）`);
+  b.innerHTML = `<span class="n">${i+1}</span><span class="txt"><span class="dt">${d.date}</span><span class="wd">星期${d.wd}</span></span>`;
+  b.addEventListener("click", () => show(i, true));
+  tabsEl.appendChild(b);
+});
+tabsEl.addEventListener("keydown", e => {
+  const cur = DAYS.findIndex(d => document.getElementById("tab-"+d.key).getAttribute("aria-selected")==="true");
+  let n = null;
+  if (e.key==="ArrowRight") n = (cur+1)%DAYS.length;
+  if (e.key==="ArrowLeft") n = (cur-1+DAYS.length)%DAYS.length;
+  if (n!==null){ e.preventDefault(); show(n,true); document.getElementById("tab-"+DAYS[n].key).focus(); }
+});
+
+function tideCard(t){
+  const W=600, H=210, L=44, R=14, T=16, B=30, ymin=-50, ymax=400;
+  const x = h => L + h*(W-L-R)/24;
+  const y = v => T + (ymax-v)*(H-T-B)/(ymax-ymin);
+  const pts = t.hourly.map((v,h)=>[x(h),y(v)]);
+  let d = `M${pts[0][0]},${pts[0][1]}`;
+  for (let k=1;k<pts.length;k++){ const [x0,y0]=pts[k-1],[x1,y1]=pts[k],mx=(x0+x1)/2; d+=` C${mx},${y0} ${mx},${y1} ${x1},${y1}`; }
+  const area = d + ` L${pts[pts.length-1][0]},${y(ymin)} L${pts[0][0]},${y(ymin)} Z`;
+  const grid = [0,100,200,300,400].map(v=>`<line x1="${L}" x2="${W-R}" y1="${y(v)}" y2="${y(v)}" stroke="var(--line)" stroke-width="1"/><text x="${L-6}" y="${y(v)+4}" text-anchor="end" font-size="11" fill="var(--ink-soft)">${v}</text>`).join("");
+  const hours = [0,3,6,9,12,15,18,21,24].map(h=>`<text x="${x(h)}" y="${H-10}" text-anchor="middle" font-size="11" fill="var(--ink-soft)">${h}時</text>`).join("");
+  const band = (v,label,col,left)=>`<line x1="${L}" x2="${W-R}" y1="${y(v)}" y2="${y(v)}" stroke="${col}" stroke-width="1.5" stroke-dasharray="5 4"/><text x="${left?L+4:W-R-4}" y="${y(v)-5}" text-anchor="${left?"start":"end"}" font-size="11" font-weight="700" fill="${col}">${label}</text>`;
+  const stay = `<rect x="${x(10.5)}" y="${T}" width="${x(16)-x(10.5)}" height="${y(ymin)-T}" fill="var(--torii)" opacity=".1"/><text x="${(x(10.5)+x(16))/2}" y="${y(ymin)-6}" text-anchor="middle" font-size="11" font-weight="700" fill="var(--torii)">在宮島 10:30–16:00</text>`;
+  const marks = t.marks.map(([k,lab,h,v])=>{const c=k==="hi"?"var(--sea-deep)":"var(--c-food)";return `<circle cx="${x(h)}" cy="${y(v)}" r="5" fill="${c}" stroke="var(--paper)" stroke-width="2"/><text x="${x(h)}" y="${k==="hi"?y(v)-10:y(v)+18}" text-anchor="middle" font-size="11" font-weight="700" fill="${c}">${lab}</text>`;}).join("");
+  const svg = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="12/25 廣島潮位曲線，10:46 滿潮 366 公分，16:46 乾潮 107 公分" style="font-family:var(--f-num)">
+    ${stay}${grid}
+    <path d="${area}" fill="var(--sea)" opacity=".45"/><path d="${d}" fill="none" stroke="var(--sea-deep)" stroke-width="2.5"/>
+    ${band(250,"250 cm 以上：鳥居浮在海上","var(--sea-deep)",true)}${band(100,"100 cm 以下：可走到鳥居","var(--c-food)",false)}
+    ${marks}${hours}</svg>`;
+  const legend = t.marks.map(([k,lab,h,v])=>`<div class="${k}"><b>${k==="hi"?"滿潮":"乾潮"}</b><span>${lab}・${v} cm</span></div>`).join("");
+  return `<div class="tide">
+    <div class="tide-top"><h4>12/25 宮島潮汐</h4><span class="src">廣島港預測值（日本氣象廳），宮島時間相差約幾分鐘</span></div>
+    <div class="tide-chart">${svg}</div>
+    <div class="tide-legend">${legend}</div>
+    <p>上午到神社時正好接近滿潮，可以看到大鳥居和迴廊浮在海上的樣子。退潮走到鳥居下面一般要潮位 100 cm 以下，這天傍晚最低只到 107 cm，比較難走過去。</p>
+  </div>`;
+}
+
+function show(i, animate){
+  const d = DAYS[i];
+  DAYS.forEach((x,j) => {
+    const t = document.getElementById("tab-"+x.key);
+    t.setAttribute("aria-selected", j===i ? "true":"false");
+    t.tabIndex = j===i ? 0 : -1;
+  });
+  panel.setAttribute("aria-labelledby","tab-"+d.key);
+  const evs = d.events.map(([s,e,k,ico,tag,h,p]) => `
+    <li class="ev k-${k}">
+      <div class="time">${s}<small>– ${e}</small></div>
+      <div class="dot"><svg aria-hidden="true"><use href="#${ico}"/></svg></div>
+      <div class="card"><span class="tag">${esc(tag)}</span><h3>${esc(h)}</h3><p>${esc(p)}</p></div>
+    </li>`).join("");
+  const tips = d.tips.map(t => typeof t==="string" ? `<li>${esc(t)}</li>` : `<li class="mine">${esc(t.t)}</li>`).join("");
+  const memoKey = "hiro-memo-"+d.key;
+  const checks = d.checklist ? `<div class="check" role="group" aria-label="出發前檢查清單">${d.checklist.map((c,ci)=>{
+      const id="chk-"+ci, on = store.get("hiro-chk-"+ci)==="1";
+      return `<label for="${id}"><input type="checkbox" id="${id}" data-ci="${ci}" ${on?"checked":""}>${esc(c)}</label>`;}).join("")}</div>` : "";
+  panel.innerHTML = `
+    <div class="panel-head">
+      <div><div class="jp">DAY ${i+1}・${esc(d.jp)}</div><h2>${esc(d.title)}</h2></div>
+      <div class="badges">
+        <span class="badge"><svg aria-hidden="true"><use href="#${d.weather.ico}"/></svg>${esc(d.weather.txt)}</span>
+        <span class="badge alt"><svg aria-hidden="true" style="color:var(--torii)"><use href="#${d.extra.ico}"/></svg>${esc(d.extra.txt)}</span>
+      </div>
+    </div>
+    <ol class="timeline">${evs}</ol>
+    ${d.tide ? tideCard(d.tide) : ""}
+    <div class="tips"><svg aria-hidden="true"><use href="#i-deer"/></svg>
+      <div><h4>小鹿的叮嚀</h4><ul>${tips}</ul></div></div>
+    ${checks}
+    <div class="today">
+      <div class="today-head"><h4>今天用得到的日文</h4><button type="button" class="more" id="more">看全部小抄 →</button></div>
+      <ul class="plist">${DAY_PHR[d.key].map(id => phraseLi(byId(id), false)).join("")}</ul>
+    </div>
+    <div class="memo"><label for="memo-${d.key}">我的筆記（預約編號、想買的東西…只存在這台裝置）</label>
+      <textarea id="memo-${d.key}" placeholder="例如：木曾路 19:00，預約編號 ____"></textarea></div>
+    <div class="nav">
+      <button type="button" id="prev" ${i===0?"disabled":""}>← 前一天</button>
+      <button type="button" id="next" ${i===DAYS.length-1?"disabled":""}>下一天 →</button>
+    </div>`;
+  const ta = panel.querySelector("textarea");
+  ta.value = store.get(memoKey) || "";
+  ta.addEventListener("input", () => store.set(memoKey, ta.value));
+  panel.querySelectorAll(".check input").forEach(c => c.addEventListener("change", () => store.set("hiro-chk-"+c.dataset.ci, c.checked?"1":"0")));
+  panel.querySelector("#prev").addEventListener("click", () => show(i-1,true));
+  panel.querySelector("#next").addEventListener("click", () => show(i+1,true));
+  bindSay(panel);
+  panel.querySelector("#more").addEventListener("click", () => scrollToEl(document.getElementById("phrases")));
+  if (animate) scrollToEl(panel, true);
+  panel.querySelectorAll(".timeline > li").forEach((li,n) => li.style.animationDelay = (n*45)+"ms");
+  panel.classList.remove("swap"); if (animate){ void panel.offsetWidth; panel.classList.add("swap"); }
+  store.set("hiro-day", String(i));
+  try{ history.replaceState(null,"","#"+d.key); }catch(e){}
+}
+
+const daybar = document.getElementById("daybar");
+const reduceMotion = () => { try{ return matchMedia("(prefers-reduced-motion: reduce)").matches; }catch(e){ return false; } };
+// Scroll so el sits just under the sticky day bar; with onlyIfAbove, only when its top is hidden
+function scrollToEl(el, onlyIfAbove){
+  // Where the bar's bottom edge sits once stuck (its sticky top + its height), plus breathing room
+  const stickyTop = parseFloat(getComputedStyle(daybar).top) || 0;
+  const offset = stickyTop + daybar.offsetHeight + 16;
+  const top = el.getBoundingClientRect().top;
+  if (onlyIfAbove && top >= offset) return;
+  window.scrollTo({ top: top + window.scrollY - offset, behavior: reduceMotion() ? "auto" : "smooth" });
+}
+function updateStuck(){
+  const stickyTop = parseFloat(getComputedStyle(daybar).top) || 0;
+  daybar.classList.toggle("stuck", daybar.getBoundingClientRect().top <= stickyTop + 1 && window.scrollY > 0);
+}
+window.addEventListener("scroll", updateStuck, { passive:true });
+window.addEventListener("resize", updateStuck);
+updateStuck();
+document.getElementById("jump").addEventListener("click", () => scrollToEl(document.getElementById("phrases")));
+
+// Phrasebook
+const catsEl = document.getElementById("cats"), plist = document.getElementById("plist");
+const canSpeak = (() => { try{ return "speechSynthesis" in window && typeof SpeechSynthesisUtterance === "function"; }catch(e){ return false; } })();
+function speak(text){
+  try{
+    speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text.replace(/〇〇/g,"なになに"));
+    u.lang = "ja-JP"; u.rate = .85;
+    const v = speechSynthesis.getVoices().find(v => /^ja/i.test(v.lang));
+    if (v) u.voice = v;
+    speechSynthesis.speak(u);
+  }catch(e){}
+}
+CATS.forEach(([k,label]) => {
+  const b = document.createElement("button");
+  b.type = "button"; b.className = "cat"; b.dataset.cat = k; b.textContent = label;
+  b.addEventListener("click", () => setCat(k));
+  catsEl.appendChild(b);
+});
+function setCat(k){
+  catsEl.querySelectorAll(".cat").forEach(b => b.setAttribute("aria-pressed", b.dataset.cat===k ? "true":"false"));
+  plist.innerHTML = PHRASES.filter(p => k==="star" ? p[5] : p[1]===k).map(p => phraseLi(p, k==="star")).join("");
+  bindSay(plist);
+  store.set("hiro-cat", k);
+}
+setCat(CATS.some(c => c[0]===store.get("hiro-cat")) ? store.get("hiro-cat") : "star");
+
+// Ask for every glyph the page can show, so all font subsets get fetched (and cached for offline use)
+try{
+  const allText = JSON.stringify(DAYS) + JSON.stringify(PHRASES) + document.body.innerText;
+  ["Huninn","Chiron GoRound TC","Zen Maru Gothic"].forEach(f => {
+    document.fonts.load(`16px "${f}"`, allText).catch(()=>{});
+    document.fonts.load(`700 16px "${f}"`, allText).catch(()=>{});
+  });
+}catch(e){}
+
+let start = 0;
+const h = (location.hash||"").slice(1);
+const fromHash = DAYS.findIndex(d => d.key===h);
+if (fromHash>=0) start = fromHash;
+else { const s = parseInt(store.get("hiro-day"),10); if (s>=0 && s<DAYS.length) start = s; }
+show(start, false);
+</script>
+
+<script>
+if ("serviceWorker" in navigator && location.protocol === "https:") {
+  navigator.serviceWorker.register("./sw.js").catch(function(){});
+}
+</script>
+</html>
