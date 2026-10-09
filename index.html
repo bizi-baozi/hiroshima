@@ -27,19 +27,20 @@ img{max-width:100%}
 :root{
   --bg:#fff4f1;          /* sakura washi */
   --paper:#ffffff;
-  --ink:#33395a;         /* indigo ink */
-  --ink-soft:#6f7395;
+  --ink:#22263f;         /* deep indigo ink */
+  --ink-soft:#4a4e6e;
   --line:#f0d9d3;
-  --torii:#e5574a;       /* vermilion */
+  --torii:#d9473a;       /* vermilion */
   --torii-soft:#fde3df;
   --sea:#8ecbe8;
-  --sea-deep:#5aa7d0;
+  --sea-deep:#2f80b0;
   --matcha:#86b98a;
   --sun:#ffcf6b;
   --deer:#c98b5a;
-  --c-move:#5aa7d0; --c-food:#f19a4b; --c-sight:#e5574a; --c-spa:#3fae9e; --c-shop:#9a7fd1;
-  --c-move-bg:#e3f2fa; --c-food-bg:#fdeedf; --c-sight-bg:#fde3df; --c-spa-bg:#ddf3ef; --c-shop-bg:#eee8fa;
-  --tip-bg:#fff8e4; --tip-line:#f3dc9c;
+  --c-move:#2f80b0; --c-food:#c96a1f; --c-sight:#d4473a; --c-spa:#23907f; --c-shop:#7d62bf;
+  --c-move-bg:#ddeef8; --c-food-bg:#fde7d2; --c-sight-bg:#fcdfda; --c-spa-bg:#d8f1ec; --c-shop-bg:#ebe4f8;
+  --tag-ink:#ffffff;
+  --tip-bg:#fff3d1; --tip-line:#eccf7c;
   --shadow:0 3px 0 #f0d9d3;
   --f-display:"Huninn","Chiron GoRound TC","PingFang TC","Microsoft JhengHei",sans-serif;
   --f-body:"Chiron GoRound TC","Huninn","PingFang TC","Microsoft JhengHei",sans-serif;
@@ -47,21 +48,22 @@ img{max-width:100%}
   --f-num:"Zen Maru Gothic","Chiron GoRound TC",sans-serif;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#1d2238; --paper:#272e4b; --ink:#f6ece6; --ink-soft:#b6b4cc; --line:#3a4266;
-  --torii:#ff7a6b; --torii-soft:#4a2f3e; --sea:#4f86a8; --sea-deep:#7cc0e3; --matcha:#7fb487; --sun:#ffd27a; --deer:#d9a274;
-  --c-move:#7cc0e3; --c-food:#f7ab66; --c-sight:#ff7a6b; --c-spa:#5fcab9; --c-shop:#b49cec;
-  --c-move-bg:#2a3d55; --c-food-bg:#47372e; --c-sight-bg:#4a2f3e; --c-spa-bg:#24433f; --c-shop-bg:#383058;
-  --tip-bg:#3a3528; --tip-line:#6b5d34; --shadow:0 3px 0 #141829; color-scheme:dark}}
+  --bg:#1a1f33; --paper:#262d48; --ink:#fbf5f0; --ink-soft:#dcdaea; --line:#3d4570;
+  --torii:#ff8a7c; --torii-soft:#4a2f3e; --sea:#4f86a8; --sea-deep:#8fcdee; --matcha:#7fb487; --sun:#ffd27a; --deer:#d9a274;
+  --c-move:#8fcdee; --c-food:#ffb877; --c-sight:#ff8a7c; --c-spa:#6fd6c5; --c-shop:#c3aef3;
+  --c-move-bg:#25334f; --c-food-bg:#3a3040; --c-sight-bg:#3d2c42; --c-spa-bg:#203b45; --c-shop-bg:#302c55;
+  --tag-ink:#1a1f33;
+  --tip-bg:#352f2a; --tip-line:#7a6a3c; --shadow:0 3px 0 #141829; color-scheme:dark}}
 :root[data-theme="dark"]{
-  --bg:#1d2238; --paper:#272e4b; --ink:#f6ece6; --ink-soft:#b6b4cc; --line:#3a4266;
-  --torii:#ff7a6b; --torii-soft:#4a2f3e; --sea:#4f86a8; --sea-deep:#7cc0e3; --matcha:#7fb487; --sun:#ffd27a; --deer:#d9a274;
-  --c-move:#7cc0e3; --c-food:#f7ab66; --c-sight:#ff7a6b; --c-spa:#5fcab9; --c-shop:#b49cec;
-  --c-move-bg:#2a3d55; --c-food-bg:#47372e; --c-sight-bg:#4a2f3e; --c-spa-bg:#24433f; --c-shop-bg:#383058;
-  --tip-bg:#3a3528; --tip-line:#6b5d34; --shadow:0 3px 0 #141829; color-scheme:dark}
+  --bg:#1a1f33; --paper:#262d48; --ink:#fbf5f0; --ink-soft:#dcdaea; --line:#3d4570;
+  --torii:#ff8a7c; --torii-soft:#4a2f3e; --sea:#4f86a8; --sea-deep:#8fcdee; --matcha:#7fb487; --sun:#ffd27a; --deer:#d9a274;
+  --c-move:#8fcdee; --c-food:#ffb877; --c-sight:#ff8a7c; --c-spa:#6fd6c5; --c-shop:#c3aef3;
+  --c-move-bg:#25334f; --c-food-bg:#3a3040; --c-sight-bg:#3d2c42; --c-spa-bg:#203b45; --c-shop-bg:#302c55;
+  --tag-ink:#1a1f33;
+  --tip-bg:#352f2a; --tip-line:#7a6a3c; --shadow:0 3px 0 #141829; color-scheme:dark}
 
 *{box-sizing:border-box}
-body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.65;
-  background-image:radial-gradient(var(--line) 1.2px,transparent 1.3px);background-size:22px 22px}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.7}
 .wrap{max-width:860px;margin:0 auto;padding-inline:16px;padding-block:20px 56px;display:flex;flex-direction:column;gap:22px}
 
 /* Hero */
@@ -118,9 +120,9 @@ body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:1
 .tab .txt{display:flex;flex-direction:column;line-height:1.2;min-width:0}
 .tab .dt{font-family:var(--f-num);font-weight:700;font-size:14px;font-variant-numeric:tabular-nums}
 .tab .wd{font-size:12px;color:var(--ink-soft)}
-.tab[aria-selected="true"]{background:var(--torii);color:#fff;box-shadow:0 3px 0 var(--ink)}
-.tab[aria-selected="true"] .n{background:#fff;color:var(--torii)}
-.tab[aria-selected="true"] .wd{color:#ffe3de}
+.tab[aria-selected="true"]{background:var(--torii);color:var(--tag-ink);box-shadow:0 3px 0 var(--ink)}
+.tab[aria-selected="true"] .n{background:var(--tag-ink);color:var(--torii)}
+.tab[aria-selected="true"] .wd{color:var(--tag-ink)}
 @media (max-width:560px){
   .tab{flex-direction:column;gap:3px;padding:6px 2px;border-radius:14px}
   .tab .n{width:26px;height:26px;font-size:15px}
@@ -186,8 +188,28 @@ body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:1
 .ev .dot{justify-self:center;width:34px;height:34px;border-radius:50%;border:2px solid var(--ink);display:grid;place-items:center;background:var(--k-bg);position:relative;z-index:1;margin-top:2px}
 .ev .dot svg{width:20px;height:20px;color:var(--k)}
 .ev:not(:last-child)::before{content:"";position:absolute;left:calc(62px + 20px - 1px);top:36px;bottom:-16px;border-left:2.5px dotted var(--ink-soft)}
-.ev .card{border-radius:16px;padding:10px 14px;background:var(--k-bg);border:1.5px solid transparent;min-width:0}
-.ev .tag{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--k);border-radius:99px;padding:0 10px;margin-right:6px;vertical-align:2px}
+.ev .card{border-radius:16px;background:var(--k-bg);border:1.5px solid transparent;min-width:0}
+.ev summary{list-style:none;cursor:pointer;padding:10px 12px 10px 14px;display:flex;gap:8px;align-items:flex-start;border-radius:16px}
+.ev summary::-webkit-details-marker{display:none}
+.ev summary:focus-visible{outline:3px dashed var(--torii);outline-offset:2px}
+.ev .sum-txt{flex:1;min-width:0}
+.ev .chev{flex:none;width:26px;height:26px;margin-top:2px;border-radius:50%;background:var(--paper);border:1.5px solid var(--k);position:relative;transition:transform .2s}
+.ev .chev::before{content:"";position:absolute;left:50%;top:45%;width:7px;height:7px;border-right:2px solid var(--k);border-bottom:2px solid var(--k);transform:translate(-50%,-50%) rotate(45deg)}
+.ev details[open] .chev{transform:rotate(180deg)}
+.ev details[open]{border-color:var(--k)}
+.xtra{padding:2px 14px 14px;display:flex;flex-direction:column;gap:10px}
+.xtra dl{margin:0;display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 12px;background:var(--paper);border-radius:12px;padding:10px 12px}
+.xtra dt{font-size:13px;font-weight:700;color:var(--k);white-space:nowrap}
+.xtra dd{margin:0;font-size:14.5px;line-height:1.55;color:var(--ink)}
+.xtra .note{margin:0;font-size:14.5px;line-height:1.55;color:var(--ink)}
+.xtra .chk{display:inline-block;font-size:12px;font-weight:700;color:var(--ink);background:var(--tip-bg);border:1.5px dashed var(--tip-line);border-radius:99px;padding:0 8px;margin-right:6px}
+.xtra .plist{grid-template-columns:1fr}
+.xtra .ph{background:var(--paper)}
+.xtra .map{align-self:flex-start;display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:700;color:var(--ink);background:var(--paper);border:1.5px solid var(--ink);border-radius:99px;padding:4px 14px;text-decoration:none}
+.xtra .map:hover{background:var(--torii-soft)}
+.xtra .map:focus-visible{outline:3px dashed var(--torii);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){.ev .chev{transition:none}}
+.ev .tag{display:inline-block;font-size:12px;font-weight:700;color:var(--tag-ink);background:var(--k);border-radius:99px;padding:0 10px;margin-right:6px;vertical-align:2px}
 .ev h3{display:inline;font-family:var(--f-display);font-weight:400;font-size:17px;margin:0}
 .tips h4,.tide h4{font-family:var(--f-display);font-weight:400}
 
@@ -454,13 +476,13 @@ const DAYS = [
     weather:{ico:"i-cloudsun", txt:"3° / 11° 晴時多雲"}, extra:{ico:"i-bag", txt:"購物日"},
     events:[
       ["10:00","11:30","food","i-coffee","早午餐","飯店周邊咖啡與輕食","睡到自然醒，慢慢吃早午餐。"],
-      ["12:00","14:00","sight","i-castle","景點","廣島城・護城河公園","散步到廣島城。午餐可選城旁定食或尾道拉麵。"],
+      ["12:00","14:00","sight","i-castle","景點","廣島城・護城河公園","天守閣已閉館，在外面看城、逛護城河和二之丸。午餐可選城旁定食或尾道拉麵。"],
       ["14:30","18:30","shop","i-bag","購物","SOGO 百貨・本通商圈・廣島站 ekie","藥妝、衣服、伴手禮一次買齊。"],
       ["19:00","21:00","food","i-food","晚餐","和牛炙燒 牛兵衛","最後一晚的和牛大餐。"],
       ["21:30","23:00","spa","i-case","整理","整理行李・最後一晚泡湯","整理戰利品，再去頂樓泡最後一次湯。"]
     ],
     tips:["廣島站 ekie 伴手禮最齊：紅葉饅頭、瀨戶內檸檬點心。","飯店是連住，東西太重可以先拿回房間。",
-          {mine:true,t:"廣島城天守閣可能從 2026 年 3 月起閉館，出發前上官網確認，外圍城跡和護城河還是可以逛。"}]
+          {mine:true,t:"廣島城天守閣已在 2026/3/22 閉館（老舊和耐震問題），裡面進不去，外觀、護城河、二之丸復原建築還是可以逛。"}]
   },
   { key:"day5", date:"12/27", wd:"日", jp:"またね、広島", icon:"i-case",
     title:"悠閒退房 → 機場巴士 → 返台",
@@ -553,6 +575,80 @@ tabsEl.addEventListener("keydown", e => {
   if (n!==null){ e.preventDefault(); show(n,true); document.getElementById("tab-"+DAYS[n].key).focus(); }
 });
 
+// Expandable details per event, in the same order as each day's events.
+// check:true marks info that could not be confirmed online and should be re-checked before the trip.
+const DETAILS = {
+  day1: [
+    { rows:[["航班","中華航空 CI112"],["報到","桃園機場 T2，建議起飛前 2 小時（05:10）到"],["飛行","約 2 小時 15 分"]],
+      note:"入境前先在 Visit Japan Web 填好資料，入境審查和海關出示 QR Code 就好。" },
+    { rows:[["搭車處","國際線出口外的巴士站，找往「広島駅」的牌子"],["車程","約 50 分"],["票價","單程約 ¥1,500，可刷 IC 卡"],["下車","廣島站新幹線口（北口）"]],
+      note:"班次會配合航班時間，入境比較慢的話搭下一班就好。", ph:["bus"], map:"広島空港 リムジンバス のりば" },
+    { rows:[["搭車處","廣島站新幹線口的計程車招呼站"],["車程","約 10～15 分"],["車資","約 ¥1,200～1,800（估計）"]],
+      note:"還沒到入住時間的話，先在櫃台寄放行李。", ph:["taxi","nimotsu"], map:"カンデオホテルズ広島八丁堀" },
+    { rows:[["電光石火","廣島站 ekie 2F，11:00–23:00，無休，招牌是用蛋皮包起來的「夢」"],["長田屋","原爆圓頂旁（大手町），11:00–20:00，週二公休"],["預算","約 ¥1,000～1,500／人"]],
+      note:"剛下巴士人就在廣島站，吃電光石火最順路。長田屋就在原爆圓頂旁邊，留到 DAY 2 中午吃剛好。", ph:["ninzu","kore"], map:"電光石火 ekie広島店" },
+    { rows:[["本通","有屋頂的拱廊商店街，下雨也好逛，店家多在 10:00–20:00 營業"],["炸紅葉饅頭","「揚げもみじ」是紅葉堂的招牌，本店在宮島"]],
+      note:"市區不一定買得到炸紅葉饅頭，DAY 3 在宮島吃最保險。", check:true, map:"広島 本通商店街" },
+    { rows:[["店家","「燒肉 弘法」的資料在網路上查不到"],["預算","黑毛和牛燒肉約 ¥5,000～8,000／人（估計）"]],
+      note:"出發前用 Google 地圖確認店名和地址。找不到的話，八丁堀附近燒肉店很多可以換。", check:true, ph:["ninzu","yoyaku"], map:"焼肉 弘法 広島 八丁堀" },
+    { rows:[["時間","住客可用時間 15:00～隔天 11:00（入住時再確認）"],["設施","頂樓露天浴池、三溫暖"]],
+      note:"日本澡堂要先洗好身體再進池子，長髮要綁起來，毛巾不要放進水裡。", ph:["furo"] }
+  ],
+  day2: [
+    { rows:[["公園","24 小時開放，免費"],["和平紀念資料館","12 月 8:30–17:00，大人 ¥200，參觀約 1～1.5 小時"]],
+      note:"行程沒排資料館，想看的話 09:30 一到就先進館，人比較少。", ph:["shashin","toire"], map:"原爆ドーム" },
+    { rows:[["店家","「旬彩 馬籠」的資料在網路上查不到"],["替代","長田屋（廣島燒）走路約 3 分"]],
+      note:"出發前用 Google 地圖確認還有沒有營業。", check:true, ph:["ninzu"], map:"旬彩 馬籠 広島" },
+    { rows:[["營業","10:00–18:00"],["門票","大人 ¥2,200"],["看點","屋頂木造展望台「ひろしまの丘」，可以從高處看原爆圓頂；12 樓可以自己折紙鶴投進「紙鶴之牆」"]],
+      ph:["card","shashin"], map:"おりづるタワー" },
+    { rows:[["往年","11 月中～1/3，17:30–22:30 點燈，免費"],["地點","平和大通りの緑地帯（飯店走路就到）"]],
+      note:"2026 年的日期還沒公布，出發前再確認。", check:true, ph:["shashin"], map:"ひろしまドリミネーション 平和大通り" },
+    { rows:[["木曾路","涮涮鍋、壽喜燒連鎖店，廣島分店資料沒查到"],["三瀧莊","西區三滝町的老字號料亭，以會席料理為主，有沒有壽喜燒要先問"],["預算","約 ¥6,000～12,000／人（估計）"]],
+      note:"聖誕夜一定要先訂位，訂好把預約編號寫在下面的筆記。", check:true, ph:["yoyaku2","yoyaku"] },
+    { rows:[["時間","住客可用時間 15:00～隔天 11:00"]], note:"聖誕夜泡完湯早點睡，明天要去宮島。", ph:["furo"] }
+  ],
+  day3: [
+    { rows:[["① 路面電車","八丁堀 → 廣島站，約 15 分"],["② JR 山陽本線","廣島 → 宮島口，約 28 分，¥420"],["③ 渡輪","宮島口 → 宮島，約 10 分，¥200 ＋宮島訪問稅 ¥100"],["付款","都可以刷 IC 卡"]],
+      note:"JR 渡輪的航線比較靠近大鳥居，船上就能拍到。", ph:["densha","ferry"], map:"宮島口旅客ターミナル" },
+    { rows:[["參拜","12 月 6:30–17:00"],["門票","大人 ¥300"],["12/25 滿潮","10:46（366 cm），神社和大鳥居會像浮在海上"]],
+      note:"這天退潮時潮位不夠低，大概走不到鳥居下面。潮汐圖在下面。", ph:["manchou","shashin"], map:"厳島神社" },
+    { rows:[["うえの","本店在「宮島口」（渡輪碼頭這一側），不在島上；10:00–19:00，無休，不能訂位，常要排隊"],["牡蠣屋","島上表參道，10:00–18:00，不定休，烤牡蠣約 ¥550 起"]],
+      note:"建議中午在島上吃牡蠣屋，うえの的星鰻飯改成 16:00 回到宮島口時吃，或外帶便當當晚餐。", check:true, ph:["kore","osusume"], map:"牡蠣屋 宮島" },
+    { rows:[["伊都岐珈琲","大約 9:00–18:00，不定休"],["紅葉堂本店","炸紅葉饅頭「揚げもみじ」，大約 8:30–18:00"]],
+      note:"宮島禁止餵鹿，地圖和票券要收好，小鹿會咬紙。", ph:["osusume","ikura"], map:"伊都岐珈琲 宮島" },
+    { rows:[["渡輪","班次很多，約 10 分鐘就到宮島口"],["JR","宮島口 → 廣島，約 28 分，¥420"]],
+      note:"うえの就在宮島口站旁邊，可以順路去。", ph:["densha"], map:"あなごめし うえの 宮島口" },
+    { rows:[["すし丸","廣島市區只查到東區的「フォレオ広島東店」，離飯店遠"],["替代","廣島站 ekie 裡也有迴轉壽司"]],
+      note:"出發前確認要去哪一家分店。", check:true, ph:["ninzu","kore","kaikei"] },
+    { rows:[["時間","住客可用時間 15:00～隔天 11:00"]], note:"走了一整天，泡湯放鬆腳。", ph:["furo"] }
+  ],
+  day4: [
+    { rows:[["地點","飯店附近（八丁堀）咖啡廳很多"]], note:"睡飽再出門，今天不趕。", ph:["ninzu","kore"] },
+    { rows:[["天守閣","2026/3/22 已閉館（老舊和耐震問題），裡面不能參觀"],["還能看","城的外觀、護城河、二之丸復原建築、廣島護國神社"],["門票","外圍免費"],["走路","從八丁堀約 15 分"]],
+      ph:["shashin"], map:"広島城" },
+    { rows:[["SOGO 廣島店","紙屋町，百貨公司，大約 10:00–20:00"],["ekie","廣島站裡，伴手禮最齊：紅葉饅頭、檸檬點心"],["免稅","同一家店一天買滿 ¥5,000（未稅）可免稅，要帶護照"]],
+      note:"日本從 2026 年 11 月起改成「先付稅、出境時退稅」的新制度，出發前再確認退稅流程，記得留時間在機場辦。", check:true, ph:["menzei","betsu","fukuro"], map:"そごう広島店" },
+    { rows:[["店家","牛兵衛 草庵 SOGO 廣島店，就在 SOGO 裡"],["類型","和牛燒肉"],["預算","套餐約 ¥8,000 起"]],
+      note:"逛完 SOGO 直接上樓吃很順。最後一晚建議先訂位。", ph:["yoyaku","card"], map:"牛兵衛 草庵 そごう広島店" },
+    { rows:[["打包","液體和刀具放託運，行動電源放隨身"],["泡湯","最後一晚，住客可用到隔天 11:00"]],
+      note:"如果有退稅商品，照新制度的規定包裝，出境時要給海關看。", ph:["furo"] }
+  ],
+  day5: [
+    { rows:[["車程","飯店 → 廣島站新幹線口，約 10～15 分"]], note:"早上可能比較難叫車，前一晚先請櫃台幫忙預約。", ph:["yobu"], map:"広島駅 新幹線口" },
+    { rows:[["車程","約 50 分"],["票價","約 ¥1,500，可刷 IC 卡"]], note:"08:00 那班最保險，09:00 前到機場。", ph:["bus"], map:"広島駅 新幹線口 リムジンバス" },
+    { rows:[["報到","國際線航廈 中華航空櫃台"],["安檢","國際線安檢口不多，早點排"]], note:"有退稅商品的話先去辦退稅手續。", ph:["mado","tonari"], map:"広島空港" },
+    { rows:[["航班","中華航空 CI113"],["抵達","桃園機場 T2 13:20（台灣時間）"]], note:"一路順風，下次見廣島！" }
+  ]
+};
+function detailHtml(x){
+  const rows = (x.rows||[]).map(([k,v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join("");
+  const note = x.note ? `<p class="note">${x.check ? `<span class="chk">出發前再確認</span>` : ""}${esc(x.note)}</p>`
+                      : (x.check ? `<p class="note"><span class="chk">出發前再確認</span></p>` : "");
+  const ph = (x.ph||[]).length ? `<ul class="plist">${x.ph.map(id => phraseLi(byId(id), false)).join("")}</ul>` : "";
+  const map = x.map ? `<a class="map" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(x.map)}" target="_blank" rel="noopener">📍 在 Google 地圖打開</a>` : "";
+  return `<div class="xtra">${rows ? `<dl>${rows}</dl>` : ""}${note}${ph}${map}</div>`;
+}
+
 function tideCard(t){
   const W=600, H=210, L=44, R=14, T=16, B=30, ymin=-50, ymax=400;
   const x = h => L + h*(W-L-R)/24;
@@ -588,11 +684,15 @@ function show(i, animate){
     t.tabIndex = j===i ? 0 : -1;
   });
   panel.setAttribute("aria-labelledby","tab-"+d.key);
-  const evs = d.events.map(([s,e,k,ico,tag,h,p]) => `
+  const det = DETAILS[d.key] || [];
+  const evs = d.events.map(([s,e,k,ico,tag,h,p], n) => `
     <li class="ev k-${k}">
       <div class="time">${s}<small>– ${e}</small></div>
       <div class="dot"><svg aria-hidden="true"><use href="#${ico}"/></svg></div>
-      <div class="card"><span class="tag">${esc(tag)}</span><h3>${esc(h)}</h3><p>${esc(p)}</p></div>
+      <details class="card">
+        <summary><span class="sum-txt"><span class="tag">${esc(tag)}</span><h3>${esc(h)}</h3><p>${esc(p)}</p></span><span class="chev" aria-hidden="true"></span></summary>
+        ${det[n] ? detailHtml(det[n]) : ""}
+      </details>
     </li>`).join("");
   const tips = d.tips.map(t => typeof t==="string" ? `<li>${esc(t)}</li>` : `<li class="mine">${esc(t.t)}</li>`).join("");
   const memoKey = "hiro-memo-"+d.key;
@@ -629,6 +729,9 @@ function show(i, animate){
   panel.querySelector("#prev").addEventListener("click", () => show(i-1,true));
   panel.querySelector("#next").addEventListener("click", () => show(i+1,true));
   bindSay(panel);
+  // Only one event open at a time
+  const cards = panel.querySelectorAll(".timeline details");
+  cards.forEach(dt => dt.addEventListener("toggle", () => { if (dt.open) cards.forEach(o => { if (o !== dt) o.open = false; }); }));
   panel.querySelector("#more").addEventListener("click", () => scrollToEl(document.getElementById("phrases")));
   if (animate) scrollToEl(panel, true);
   panel.querySelectorAll(".timeline > li").forEach((li,n) => li.style.animationDelay = (n*45)+"ms");
