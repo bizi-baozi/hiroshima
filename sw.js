@@ -1,7 +1,7 @@
 // Offline support for 廣島冬遊記.
 // Page: network first (so edits show up when online), cache as fallback.
 // Fonts and icons: cache first.
-const CACHE = "hiroshima-v2";
+const CACHE = "hiroshima-v3";
 const CORE = ["./", "./index.html", "./manifest.webmanifest", "./icon-180.png", "./icon-192.png", "./icon-512.png"];
 
 self.addEventListener("install", e => {
